@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		669973D31F64A15B004ED5B3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973D21F64A15B004ED5B3 /* main.swift */; };
-		669973DA1F64A5E8004ED5B3 /* ArgParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973D91F64A5E8004ED5B3 /* ArgParse.swift */; };
+		669973DA1F64A5E8004ED5B3 /* ArgParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973D91F64A5E8004ED5B3 /* ArgParser.swift */; };
 		669973E51F652D26004ED5B3 /* ArgParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973E41F652D26004ED5B3 /* ArgParseTests.swift */; };
-		669973EB1F652D5C004ED5B3 /* ArgParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973D91F64A5E8004ED5B3 /* ArgParse.swift */; };
+		669973EB1F652D5C004ED5B3 /* ArgParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973D91F64A5E8004ED5B3 /* ArgParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		669973CF1F64A15B004ED5B3 /* SwiftArgParse */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftArgParse; sourceTree = BUILT_PRODUCTS_DIR; };
 		669973D21F64A15B004ED5B3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		669973D91F64A5E8004ED5B3 /* ArgParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgParse.swift; sourceTree = "<group>"; };
+		669973D91F64A5E8004ED5B3 /* ArgParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgParser.swift; sourceTree = "<group>"; };
 		669973E21F652D26004ED5B3 /* ArgParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		669973E41F652D26004ED5B3 /* ArgParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgParseTests.swift; sourceTree = "<group>"; };
 		669973E61F652D26004ED5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				669973D21F64A15B004ED5B3 /* main.swift */,
-				669973D91F64A5E8004ED5B3 /* ArgParse.swift */,
+				669973D91F64A5E8004ED5B3 /* ArgParser.swift */,
 			);
 			path = SwiftArgParse;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				669973DA1F64A5E8004ED5B3 /* ArgParse.swift in Sources */,
+				669973DA1F64A5E8004ED5B3 /* ArgParser.swift in Sources */,
 				669973D31F64A15B004ED5B3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,7 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				669973EB1F652D5C004ED5B3 /* ArgParse.swift in Sources */,
+				669973EB1F652D5C004ED5B3 /* ArgParser.swift in Sources */,
 				669973E51F652D26004ED5B3 /* ArgParseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
