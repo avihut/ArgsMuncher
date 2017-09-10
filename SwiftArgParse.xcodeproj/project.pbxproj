@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		669973D31F64A15B004ED5B3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973D21F64A15B004ED5B3 /* main.swift */; };
+		669973DA1F64A5E8004ED5B3 /* ArgParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973D91F64A5E8004ED5B3 /* ArgParse.swift */; };
+		669973E51F652D26004ED5B3 /* ArgParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973E41F652D26004ED5B3 /* ArgParseTests.swift */; };
+		669973EB1F652D5C004ED5B3 /* ArgParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669973D91F64A5E8004ED5B3 /* ArgParse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +28,21 @@
 /* Begin PBXFileReference section */
 		669973CF1F64A15B004ED5B3 /* SwiftArgParse */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftArgParse; sourceTree = BUILT_PRODUCTS_DIR; };
 		669973D21F64A15B004ED5B3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		669973D91F64A5E8004ED5B3 /* ArgParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgParse.swift; sourceTree = "<group>"; };
+		669973E21F652D26004ED5B3 /* ArgParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		669973E41F652D26004ED5B3 /* ArgParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgParseTests.swift; sourceTree = "<group>"; };
+		669973E61F652D26004ED5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		669973CC1F64A15B004ED5B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		669973DF1F652D26004ED5B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				669973D11F64A15B004ED5B3 /* SwiftArgParse */,
+				669973E31F652D26004ED5B3 /* ArgParseTests */,
 				669973D01F64A15B004ED5B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				669973CF1F64A15B004ED5B3 /* SwiftArgParse */,
+				669973E21F652D26004ED5B3 /* ArgParseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,8 +74,18 @@
 			isa = PBXGroup;
 			children = (
 				669973D21F64A15B004ED5B3 /* main.swift */,
+				669973D91F64A5E8004ED5B3 /* ArgParse.swift */,
 			);
 			path = SwiftArgParse;
+			sourceTree = "<group>";
+		};
+		669973E31F652D26004ED5B3 /* ArgParseTests */ = {
+			isa = PBXGroup;
+			children = (
+				669973E41F652D26004ED5B3 /* ArgParseTests.swift */,
+				669973E61F652D26004ED5B3 /* Info.plist */,
+			);
+			path = ArgParseTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +108,23 @@
 			productReference = 669973CF1F64A15B004ED5B3 /* SwiftArgParse */;
 			productType = "com.apple.product-type.tool";
 		};
+		669973E11F652D26004ED5B3 /* ArgParseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 669973E71F652D26004ED5B3 /* Build configuration list for PBXNativeTarget "ArgParseTests" */;
+			buildPhases = (
+				669973DE1F652D26004ED5B3 /* Sources */,
+				669973DF1F652D26004ED5B3 /* Frameworks */,
+				669973E01F652D26004ED5B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArgParseTests;
+			productName = ArgParseTests;
+			productReference = 669973E21F652D26004ED5B3 /* ArgParseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +136,10 @@
 				ORGANIZATIONNAME = "Avihu Turzion";
 				TargetAttributes = {
 					669973CE1F64A15B004ED5B3 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					669973E11F652D26004ED5B3 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -111,16 +158,37 @@
 			projectRoot = "";
 			targets = (
 				669973CE1F64A15B004ED5B3 /* SwiftArgParse */,
+				669973E11F652D26004ED5B3 /* ArgParseTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		669973E01F652D26004ED5B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		669973CB1F64A15B004ED5B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669973DA1F64A5E8004ED5B3 /* ArgParse.swift in Sources */,
 				669973D31F64A15B004ED5B3 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		669973DE1F652D26004ED5B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				669973EB1F652D5C004ED5B3 /* ArgParse.swift in Sources */,
+				669973E51F652D26004ED5B3 /* ArgParseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +321,34 @@
 			};
 			name = Release;
 		};
+		669973E81F652D26004ED5B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QNT889H433;
+				INFOPLIST_FILE = ArgParseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.turzion.ArgParseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		669973E91F652D26004ED5B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QNT889H433;
+				INFOPLIST_FILE = ArgParseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.turzion.ArgParseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -270,6 +366,15 @@
 			buildConfigurations = (
 				669973D71F64A15B004ED5B3 /* Debug */,
 				669973D81F64A15B004ED5B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		669973E71F652D26004ED5B3 /* Build configuration list for PBXNativeTarget "ArgParseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				669973E81F652D26004ED5B3 /* Debug */,
+				669973E91F652D26004ED5B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
