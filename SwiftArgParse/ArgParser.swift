@@ -37,7 +37,8 @@ struct ArgParser {
     var arguments = Array(self.arguments)
     var commandLineArguments = commandLineArguments
     
-    for i in 1..<commandLineArguments.count {
+    var i = 1
+    while i < commandLineArguments.count {
       guard !arguments.isEmpty else {
         throw ParseError.tooManyArguments(remaining: Array(commandLineArguments[i..<commandLineArguments.count]))
       }
@@ -46,10 +47,13 @@ struct ArgParser {
       
       if currentArgument.multipleValues {
         attributes[currentArgument.name] = Array(commandLineArguments[i..<commandLineArguments.count])
-        break
+        i = commandLineArguments.count
+        continue
       } else {
         attributes[currentArgument.name] = [commandLineArguments[i]]
       }
+      
+      i += 1
     }
     
     return attributes
@@ -75,7 +79,7 @@ struct ArgParser {
   }
 }
 
-class Argument {
+struct Argument {
   let name: String
   let multipleValues: Bool
   
