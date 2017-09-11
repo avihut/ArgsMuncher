@@ -10,7 +10,7 @@ import XCTest
 
 let testAppName = "test"
 
-class ArgParseTests: XCTestCase {
+final class ArgParseUsageTests: XCTestCase {
   var parser: ArgParser!
   
   override func setUp() {
@@ -22,26 +22,40 @@ class ArgParseTests: XCTestCase {
   }
   
   func testConstructsUsageWithoutDescription() {
-    XCTAssertEqual(parser.usage, testAppName)
+    XCTAssertEqual(parser.usage, "\(testAppName)\n")
+  }
+  
+  func testIsolatesAppNameFromPath() {
+    CommandLine.arguments[0] = "directory/\(testAppName)"
+    parser = ArgParser()
+    XCTAssertEqual(parser.usage, "\(testAppName)\n")
+  }
+}
+
+final class ArgParseTests: XCTestCase {
+  var parser: ArgParser!
+  
+  override func setUp() {
+    parser = ArgParser(appName: testAppName)
   }
   
   func testConstructsUsageWithDescription() {
     let appDescription = "Does some amazing shit!"
     parser = ArgParser(appName: testAppName, description: appDescription)
-    XCTAssertEqual(parser.usage, "\(testAppName)\n\n\(appDescription)")
+    XCTAssertEqual(parser.usage, "\(testAppName)\n\n\(appDescription)\n")
   }
   
   func testErrorsWhenAddingMoreThanOneArgumentWithTheSameName() {
     let argName = "arg"
-    try? XCTAssertNoThrow(parser.add(Argument(name: argName)))
-    try! XCTAssertThrowsError(parser.add(Argument(name: argName)))
+    try? XCTAssertNoThrow(parser.add(Argument(name: argName, displayName: argName)))
+    try! XCTAssertThrowsError(parser.add(Argument(name: argName, displayName: argName)))
   }
   
   func testParsesSingleArgument() {
     let argName = "arg"
     let argValue = "val"
     
-    XCTAssertNoThrow(try parser.add(Argument(name: argName)))
+    XCTAssertNoThrow(try parser.add(Argument(name: argName, displayName: argName)))
     let attributes = try! parser.parse(args: [testAppName, argValue])
     XCTAssertEqual(attributes[argName]!, [argValue])
   }
@@ -50,7 +64,7 @@ class ArgParseTests: XCTestCase {
     let argName = "arg"
     let argValue = "val"
     
-    XCTAssertNoThrow(try parser.add(Argument(name: argName)))
+    XCTAssertNoThrow(try parser.add(Argument(name: argName, displayName: argName)))
     let attributes1 = try! parser.parse(args: [testAppName, argValue])
     XCTAssertEqual(attributes1[argName]!, [argValue])
     
@@ -66,7 +80,7 @@ class ArgParseTests: XCTestCase {
     let argValues = ["val1", "val2", "val3"]
     
     for argName in argNames {
-      XCTAssertNoThrow(try parser.add(Argument(name: argName)))
+      XCTAssertNoThrow(try parser.add(Argument(name: argName, displayName: argName)))
     }
     
     let attributes = try! parser.parse(args: commandLineArgumentList(for: argValues))
@@ -80,7 +94,7 @@ class ArgParseTests: XCTestCase {
     let argName = "files"
     let fileArgs = ["file1", "file2", "file3"]
     
-    XCTAssertNoThrow(try parser.add(Argument(name: argName, multipleValues: true)))
+    XCTAssertNoThrow(try parser.add(Argument(name: argName, displayName: argName, multipleValues: true)))
     let attributes = try! parser.parse(args: commandLineArgumentList(for: fileArgs))
     XCTAssertEqual(attributes[argName]!, fileArgs)
   }

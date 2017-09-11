@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let kPathSep: Character = "/"
+
 enum ArgumentError: Error {
   case duplicate(original: Argument, duplicate: Argument)
 }
@@ -22,6 +24,14 @@ struct ArgParser {
   private let description: String?
   
   private var arguments: [Argument] = []
+  
+  init(description: String? = nil) {
+    if let commandName = CommandLine.arguments[0].split(separator: kPathSep).last {
+      self.init(appName: String(commandName), description: description)
+    } else {
+      self.init(appName: CommandLine.arguments[0], description: description)
+    }
+  }
   
   init(appName: String, description: String? = nil) {
     self.appName = appName
@@ -68,24 +78,29 @@ struct ArgParser {
   }
   
   var usage: String {
-    var usageText = ""
-    usageText += "\(appName)"
+    var usageText = "\(appName)"
+    
+    for argument in arguments {
+      usageText += " \(argument.displayName)"
+    }
     
     if let description = description {
       usageText += "\n\n\(description)"
     }
     
-    return usageText
+    return "\(usageText)\n"
   }
 }
 
 struct Argument {
   let name: String
+  let displayName: String
   let multipleValues: Bool
   
-  init(name: String, multipleValues: Bool = false) {
+  init(name: String, displayName: String, multipleValues: Bool = false) {
     self.name = name
     self.multipleValues = multipleValues
+    self.displayName = displayName.uppercased()
   }
 }
 

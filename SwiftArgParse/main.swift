@@ -8,8 +8,8 @@
 
 import Foundation
 
-var i = 1
-while i <= 3 {
-  print(i)
-  i += 1
-}
+//var parser = ArgParser(description: "List files in path.")
+var parser = ArgParser()
+//try! parser.add(Argument(name: "path", displayName: "PATH"))
+
+print(parser.usage)
